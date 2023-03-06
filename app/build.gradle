@@ -12,7 +12,7 @@ apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
 android {
     signingConfigs {
         release {
-            storeFile file("${projectDir}/store/release-key.jks")
+            storeFile file('\\..\\store\\release-key.jks')
             storePassword '12345678'
             keyAlias 'release-key'
             keyPassword '12345678'
