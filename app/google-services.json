@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "665780765483",
+    "project_id": "wallpaperpexelapp",
+    "storage_bucket": "wallpaperpexelapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665780765483:android:35940b197f7453df4f7b6e",
+        "android_client_info": {
+          "package_name": "br.com.sscode.wallpaperpexelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665780765483-405sur1kkmfvuquogltv0b66coopbief.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJs0Bi5Kj6cx8JIF2J9RfBLI3AdSmnHQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665780765483-405sur1kkmfvuquogltv0b66coopbief.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665780765483:android:d14b48fd89e167e14f7b6e",
+        "android_client_info": {
+          "package_name": "br.com.sscode.wallpaperpexelapp.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665780765483-405sur1kkmfvuquogltv0b66coopbief.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJs0Bi5Kj6cx8JIF2J9RfBLI3AdSmnHQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665780765483-405sur1kkmfvuquogltv0b66coopbief.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665780765483:android:6e5078e740c3d4ec4f7b6e",
+        "android_client_info": {
+          "package_name": "br.com.sscode.wallpaperpexelapp.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665780765483-405sur1kkmfvuquogltv0b66coopbief.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJs0Bi5Kj6cx8JIF2J9RfBLI3AdSmnHQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665780765483-405sur1kkmfvuquogltv0b66coopbief.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
