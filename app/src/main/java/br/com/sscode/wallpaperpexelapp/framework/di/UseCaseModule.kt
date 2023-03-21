@@ -13,5 +13,4 @@ interface UseCaseModule {
 
     @Binds
     fun bindPopularUseCase(getPopularUseCaseImpl: GetPopularUseCaseImpl): GetPopularUseCase
-
 }
