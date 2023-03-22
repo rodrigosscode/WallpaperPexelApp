@@ -9,6 +9,7 @@ java {
 }
 
 dependencies {
+    testImplementation project(':testing')
 
     // Retrofit
     api "com.squareup.retrofit2:retrofit:$retrofit_version"

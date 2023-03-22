@@ -8,6 +8,7 @@ buildscript {
     ext.paging_version = "3.1.1"
     ext.kotlin_version = "1.8.0"
     ext.retrofit_version = "2.9.0"
+    ext.arch_core_version = "2.2.0"
 
     repositories {
         google()
@@ -29,7 +30,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
 }
 
-task clean(type: Delete){
+task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
