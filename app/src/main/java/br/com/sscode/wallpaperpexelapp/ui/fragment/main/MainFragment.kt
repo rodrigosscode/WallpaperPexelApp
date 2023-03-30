@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import br.com.sscode.wallpaperpexelapp.databinding.FragmentMainBinding
 import br.com.sscode.wallpaperpexelapp.ui.fragment.category.CategoriesFragment
 import br.com.sscode.wallpaperpexelapp.ui.fragment.collections.CollectionsFragment
@@ -32,6 +33,7 @@ class MainFragment : Fragment() {
         initToolbar()
         initViewPager()
         initTabLayout()
+        configureFabClick()
     }
 
     private fun initTabLayout() {
@@ -50,5 +52,13 @@ class MainFragment : Fragment() {
         binding.run {
             viewPager.adapter = pagerAdapter
         }
+    }
+
+    private fun configureFabClick() {
+        binding.fab.setOnClickListener { navigateToGallery() }
+    }
+
+    private fun navigateToGallery() {
+        findNavController().navigate(MainFragmentDirections.actionMainFragmentToGalleryFragment())
     }
 }

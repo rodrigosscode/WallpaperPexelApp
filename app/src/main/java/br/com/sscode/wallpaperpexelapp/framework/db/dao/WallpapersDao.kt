@@ -12,8 +12,8 @@ interface WallpapersDao {
     suspend fun insert(entity: PhotoEntity)
 
     @Query("SELECT * FROM ${DbConstants.PHOTO_TABLE_NAME}")
-    suspend fun getAllPhotos(): Flow<List<PhotoEntity>>
+    fun getAll(): Flow<List<PhotoEntity>>
 
-    @Query("DELETE FROM ${DbConstants.PHOTO_TABLE_NAME} WHERE id = :id")
-    suspend fun deleteById(id: Int)
+    @Delete
+    suspend fun delete(entity: PhotoEntity)
 }

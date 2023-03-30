@@ -1,14 +1,18 @@
-package br.com.sscode.wallpaperpexelapp.ui.fragment.adapter.photoadapter
+package br.com.sscode.wallpaperpexelapp.ui.fragment.adapter.galleryadapter
 
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import br.com.sscode.core.model.PhotoDomain
+import br.com.sscode.wallpaperpexelapp.ui.fragment.adapter.photoadapter.PhotoViewHolder
 
-class PhotoAdapter(
+class GalleryAdapter(
     private val clickCallback: (photoDomain: PhotoDomain) -> Unit,
-    private val longClickCallback: (photoDomain: PhotoDomain) -> Unit,
-) : PagingDataAdapter<PhotoDomain, PhotoViewHolder>(diffCallback) {
+    private val longClickCallback: (photoDomain: PhotoDomain) -> Unit
+) : ListAdapter<PhotoDomain, PhotoViewHolder>(differCallback) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder =
+        PhotoViewHolder.create(parent, clickCallback, longClickCallback)
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         getItem(position)?.let {
@@ -16,13 +20,8 @@ class PhotoAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder =
-        PhotoViewHolder.create(parent, clickCallback, longClickCallback)
-
     companion object {
-
-        private val diffCallback = object : DiffUtil.ItemCallback<PhotoDomain>() {
-
+        private val differCallback = object : DiffUtil.ItemCallback<PhotoDomain>() {
             override fun areItemsTheSame(oldItem: PhotoDomain, newItem: PhotoDomain): Boolean {
                 return oldItem.url == newItem.url
             }

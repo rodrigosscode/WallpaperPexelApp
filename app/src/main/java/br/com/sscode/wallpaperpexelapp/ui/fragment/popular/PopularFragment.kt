@@ -20,6 +20,8 @@ import br.com.sscode.wallpaperpexelapp.ui.fragment.main.MainFragmentDirections
 import br.com.sscode.wallpaperpexelapp.ui.fragment.popular.viewmodel.PopularViewModel
 import br.com.sscode.wallpaperpexelapp.util.animationCancel
 import br.com.sscode.wallpaperpexelapp.util.pulseAnimation
+import com.google.android.material.snackbar.BaseTransientBottomBar.ANIMATION_MODE_SLIDE
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -43,11 +45,12 @@ class PopularFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         observeLoadingState()
+        observerFavoriteUiState()
         fetchWallpapers()
     }
 
     private fun initAdapter() {
-        photoAdapter = PhotoAdapter(::detail)
+        photoAdapter = PhotoAdapter(::detail, ::insertData)
         val gridLayoutManager = GridLayoutManager(requireContext(), 3)
         with(binding.recyclerView) {
             scrollToPosition(0)
@@ -87,8 +90,38 @@ class PopularFragment : Fragment() {
         }
     }
 
+    private fun observerFavoriteUiState() {
+        popularViewModel.favoriteUiState.observe(viewLifecycleOwner) { favoriteUiState ->
+            when (favoriteUiState) {
+                PopularViewModel.FavoriteUiState.Loading -> 1
+                is PopularViewModel.FavoriteUiState.FavoritePhoto -> {
+                    if (favoriteUiState.saved) {
+                        favoriteItemMessage("item salvo")
+                    } else {
+                        favoriteItemMessage(
+                            "erro ao salvar"
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    private fun favoriteItemMessage(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT)
+            .setAnimationMode(ANIMATION_MODE_SLIDE).show()
+    }
+
     private fun detail(photoDomain: PhotoDomain) {
-        val data = arrayOf(photoDomain.srcDomain.original, photoDomain.description)
-        findNavController().navigate(MainFragmentDirections.actionMainFragmentToDownloadFragment(data))
+        val data = arrayOf(photoDomain.srcDomain?.original, photoDomain.description)
+        findNavController().navigate(
+            MainFragmentDirections.actionMainFragmentToDownloadFragment(
+                data
+            )
+        )
+    }
+
+    private fun insertData(photoDomain: PhotoDomain) {
+        popularViewModel.favoritePhoto(photoDomain)
     }
 }

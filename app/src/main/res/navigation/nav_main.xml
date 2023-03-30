@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_mainFragment_to_downloadFragment"
             app:destination="@id/downloadFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
 
     </fragment>
 
@@ -25,6 +28,15 @@
         <argument
             android:name="image"
             app:argType="string[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="br.com.sscode.wallpaperpexelapp.ui.fragment.gallery.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_downloadFragment"
+            app:destination="@id/downloadFragment" />
     </fragment>
 
 </navigation>

@@ -1,4 +1,4 @@
-package br.com.sscode.core.usecase
+package br.com.sscode.core.usecase.base
 
 sealed class ResultStatus<out T> {
     object Loading : ResultStatus<Nothing>()
