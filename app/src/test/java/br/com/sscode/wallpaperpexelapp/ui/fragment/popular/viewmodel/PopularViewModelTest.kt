@@ -2,6 +2,7 @@ package br.com.sscode.wallpaperpexelapp.ui.fragment.popular.viewmodel
 
 import androidx.paging.PagingData
 import br.com.sscode.core.model.PhotoDomain
+import br.com.sscode.core.usecase.insertgalleryusecase.InsertGalleryUseCase
 import br.com.sscode.core.usecase.popularusecase.GetPopularUseCase
 import br.com.sscode.testing.MainCoroutineTestRule
 import br.com.sscode.testing.model.WallpapersFactory
@@ -29,11 +30,14 @@ internal class PopularViewModelTest {
     @Mock
     lateinit var getPopularUseCase: GetPopularUseCase
 
+    @Mock
+    lateinit var insertGalleryUseCase: InsertGalleryUseCase
+
     private lateinit var popularViewModel: PopularViewModel
 
     @Before
     fun setUp() {
-        popularViewModel = PopularViewModel(getPopularUseCase)
+        popularViewModel = PopularViewModel(getPopularUseCase, insertGalleryUseCase)
     }
 
     @Test
