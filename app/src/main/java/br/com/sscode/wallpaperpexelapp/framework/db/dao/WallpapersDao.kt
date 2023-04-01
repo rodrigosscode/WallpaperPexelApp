@@ -16,4 +16,7 @@ interface WallpapersDao {
 
     @Delete
     suspend fun delete(entity: PhotoEntity)
+
+    @Query("SELECT * FROM ${DbConstants.PHOTO_TABLE_NAME} ORDER BY RANDOM() LIMIT 1")
+    suspend fun getRandomWallpaper(): PhotoEntity
 }
